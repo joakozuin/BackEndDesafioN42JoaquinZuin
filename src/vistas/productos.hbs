@@ -1,0 +1,49 @@
+<div>
+<h2>Alta de Productos</h2>
+    <form class="row g-4" action="/producto" method="post">
+        <div class="form-group">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" id="nombre" name="nombre" type="text" value="" placeholder="Nombre del producto">
+        </div>
+        <div class="form-group" >
+            <label class="form-label" for="descripcion">Descripción</label>
+            <input class="form-control" id="descripcion" name="descripcion" type="text" value="" placeholder="Descripción del producto">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="cant">Cantidad</label>
+            <input class="form-control" id="can" name="cant" type="text" value="" placeholder="Cantidad de productos">
+        </div>
+        <div>
+           <button class="btn btn-primary">Agregar Producto</button>
+        </div>
+    </form>
+
+<hr>
+    {{#if productos.length}}
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                     <th scope="col">Descripción</th>
+                     <th scope="col">Cantidad</th>
+                     <th scope="col">Hora Inicio Servidor</th>
+                </tr>
+            </thead>
+        {{#each productos}}
+        <tr>
+            <th scope="row">{{this.nombre}}</th>
+            <th>{{this.descripcion}}</th>
+            <th>{{this.cant}}</th>
+            <th>{{this.hora}}</th>
+        </tr>
+        {{/each}}
+        </table>
+    </div>
+    {{else}}
+
+    <h4>No hay productos Registrados</h4>
+
+    {{/if}}
+
+</div>
